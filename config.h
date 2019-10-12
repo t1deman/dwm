@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-
+#include "tcl.c"
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -11,7 +11,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#18453b";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "WeB", "MaiL", "3", "ChaT", "KoM", "VM", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -28,7 +28,18 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       1,       0,           0 },
+	{ "Spotify",	NULL,	NULL,	1  ,	0,1},
+	{ "Spotify Premium", NULL, NULL, 1  , 0,1},
+	{ "discord",	NULL,NULL, 1 << 3 ,0,0},
+	{ "Signal",	NULL,NULL, 1 << 3 ,0,1},
+	{ "Slack", NULL, NULL, 1 << 3 , 0 ,0},
+	{ "Evolution", NULL, NULL, 1 << 1 , 0 , 0},
+	{ "Thunderbird", NULL, NULL, 1 << 1, 0,0},
+	{ "Barrier", NULL, NULL, 1 << 8 , 0 , 1},
+	{ "Vmware", NULL, NULL, 1 << 5 , 0 , 0},
+	{ "Komodo", NULL, NULL, 1 << 4 , 0 , 0},
+	{ "ethminer", NULL, NULL, 1<< 8, 0, 1},
 };
 
 /* layout(s) */
@@ -40,11 +51,15 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "|||",      tcl },
 	{ "[M]",      monocle },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
 #define MODKEY Mod4Mask
+#define MODKEYALT Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -67,7 +82,7 @@ static Key keys[] = {
         { Mod1Mask,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ Mod1Mask,                       XK_space,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,			XK_l,	   spawn,	   {.v = slockcmd } },
+	{ MODKEYALT|ControlMask,			XK_l,	   spawn,	   {.v = slockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -78,9 +93,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEYALT|ControlMask,             XK_1,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEYALT|ControlMask,             XK_2,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEYALT|ControlMask,             XK_3,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEYALT|ControlMask,             XK_4,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEYALT|ControlMask,             XK_5,      setlayout,      {.v = &layouts[4]} },
+        { MODKEYALT|ControlMask,             XK_6,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
