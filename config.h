@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 #include "tcl.c"
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "WeB", "MaiL", "3", "ChaT", "KoM", "VM", "Dig", "Rev", "Pwns" };
+static const char *tags[] = { "WeB", "MaiL", "TerM", "ChaT", "KoM", "VM", "Dig", "Rev", "Pwns" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -29,8 +29,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1,       0,           0 },
-	{ "Spotify",	NULL,	NULL,	1  ,	0,1},
-	{ "Spotify Premium", NULL, NULL, 1  , 0,1},
+	{ "Spotify",     NULL,       NULL,        2,         True,     1 },
 	{ "discord",	NULL,NULL, 1 << 3 ,0,0},
 	{ "Signal",	NULL,NULL, 1 << 3 ,0,1},
 	{ "Slack", NULL, NULL, 1 << 3 , 0 ,0},
@@ -39,7 +38,12 @@ static const Rule rules[] = {
 	{ "Barrier", NULL, NULL, 1 << 8 , 0 , 1},
 	{ "Vmware", NULL, NULL, 1 << 5 , 0 , 0},
 	{ "Komodo", NULL, NULL, 1 << 4 , 0 , 0},
-	{ "ethminer", NULL, NULL, 1<< 8, 0, 1},
+	{ "Xfce4-terminal", NULL, "ETH", 1<< 8, 0, 1},
+	{ "Pavucontrol", NULL, NULL, 1 << 7, 0,1},
+	{ "Nm-connection-editor", NULL, NULL, 1 << 6, 0,1},
+	{ "Wicd-client.py", NULL, NULL, 1 << 6, 0,1},
+	{ "Opera", NULL, NULL, 1, 0, 1},
+	{ "Standard Notes", NULL, NULL, 1<< 2, 0, 1}
 };
 
 /* layout(s) */
@@ -98,7 +102,7 @@ static Key keys[] = {
 	{ MODKEYALT|ControlMask,             XK_3,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEYALT|ControlMask,             XK_4,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEYALT|ControlMask,             XK_5,      setlayout,      {.v = &layouts[4]} },
-        { MODKEYALT|ControlMask,             XK_6,      setlayout,      {.v = &layouts[5]} },
+    { MODKEYALT|ControlMask,             XK_6,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
