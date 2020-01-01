@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "WeB", "MaiL", "TerM", "ChaT", "KoM", "VM", "Dig", "Rev", "Pwns" };
+static const char *tags[] = { "WeB", "MaiL", "TerM", "ChaT", "IDE", "VM", "Tide", "Man", "Pwns" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	{ "Barrier", NULL, NULL, 1 << 8 , 0 , 1},
 	{ "Vmware", NULL, NULL, 1 << 5 , 0 , 0},
 	{ "Komodo", NULL, NULL, 1 << 4 , 0 , 0},
+	{ "Atom", NULL, NULL, 1 << 4 , 0 , 0},
 	{ "Xfce4-terminal", NULL, "ETH", 1<< 8, 0, 1},
 	{ "Pavucontrol", NULL, NULL, 1 << 7, 0,1},
 	{ "Nm-connection-editor", NULL, NULL, 1 << 6, 0,1},
@@ -53,11 +54,11 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "|M|",      centeredmaster },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[]=",      tile },    /* first entry is default */
 	{ "|||",      tcl },
 	{ "[M]",      monocle },
-	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
 };
 
@@ -79,6 +80,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "xfce4-terminal", NULL };
 static const char *slockcmd[] = { "/usr/bin/slock", NULL };
+static const char *spotcmd[] = { "/snap/bin/spotify", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -87,6 +89,7 @@ static Key keys[] = {
 	{ Mod1Mask,                       XK_space,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEYALT|ControlMask,			XK_l,	   spawn,	   {.v = slockcmd } },
+	{ MODKEYALT|ControlMask,			XK_s,	   spawn,	   {.v = spotcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
