@@ -44,7 +44,7 @@ static const Rule rules[] = {
 	{ "Nm-connection-editor", NULL, NULL, 1 << 6, 0,1},
 	{ "Wicd-client.py", NULL, NULL, 1 << 6, 0,1},
 	{ "Opera", NULL, NULL, 1, 0, 1},
-	{ "Standard Notes", NULL, NULL, 1<< 2, 0, 1}
+	{ "Standard Notes", NULL, NULL, 1<< 1, 0, 1}
 };
 
 /* layout(s) */
@@ -142,4 +142,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
