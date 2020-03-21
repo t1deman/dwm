@@ -39,12 +39,14 @@ static const Rule rules[] = {
 	{ "Vmware", NULL, NULL, 1 << 5 , 0 , 0},
 	{ "Komodo", NULL, NULL, 1 << 4 , 0 , 0},
 	{ "Atom", NULL, NULL, 1 << 4 , 0 , 0},
+	{ "Code", NULL, NULL, 1 << 4 , 0 , 1},
 	{ "Xfce4-terminal", NULL, "ETH", 1<< 8, 0, 1},
 	{ "Pavucontrol", NULL, NULL, 1 << 7, 0,1},
 	{ "Nm-connection-editor", NULL, NULL, 1 << 6, 0,1},
 	{ "Wicd-client.py", NULL, NULL, 1 << 6, 0,1},
 	{ "Opera", NULL, NULL, 1, 0, 1},
-	{ "Standard Notes", NULL, NULL, 1<< 1, 0, 1}
+	{ "Standard Notes", NULL, NULL, 1<< 1, 0, 1},
+	{ "install4j-burp-StartBurp",     NULL,       NULL,       0,            1,           -1 }
 };
 
 /* layout(s) */
