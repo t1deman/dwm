@@ -34,12 +34,12 @@ static const Rule rules[] = {
 	{ "Signal",	NULL,NULL, 1 << 3 ,0,1},
 	{ "Slack", NULL, NULL, 1 << 3 , 0 ,0},
 	{ "Evolution", NULL, NULL, 1 << 1 , 0 , 0},
-	{ "Thunderbird", NULL, NULL, 1 << 1, 0,0},
+	{ "thunderbird", NULL, NULL, 1 << 1, 0,0},
 	{ "Barrier", NULL, NULL, 1 << 8 , 0 , 1},
 	{ "Vmware", NULL, NULL, 1 << 5 , 0 , 0},
 	{ "Komodo", NULL, NULL, 1 << 4 , 0 , 0},
 	{ "Atom", NULL, NULL, 1 << 4 , 0 , 0},
-	{ "Code", NULL, NULL, 1 << 4 , 0 , 1},
+	{ "VSCodium", NULL, NULL, 1 << 4 , 0 , 1},
 	{ "Xfce4-terminal", NULL, "ETH", 1<< 8, 0, 1},
 	{ "Pavucontrol", NULL, NULL, 1 << 7, 0,1},
 	{ "Nm-connection-editor", NULL, NULL, 1 << 6, 0,1},
@@ -83,6 +83,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "xfce4-terminal", NULL };
 static const char *slockcmd[] = { "/usr/bin/slock", NULL };
 static const char *spotcmd[] = { "/snap/bin/spotify", NULL };
+static const char *barriercmd[] = { "/usr/bin/barrier", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,6 +91,7 @@ static Key keys[] = {
         { Mod1Mask,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ Mod1Mask,                       XK_space,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEYALT|ControlMask,             XK_b, spawn,          {.v = barriercmd } },
 	{ MODKEYALT|ControlMask,			XK_l,	   spawn,	   {.v = slockcmd } },
 	{ MODKEYALT|ControlMask,			XK_s,	   spawn,	   {.v = spotcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
