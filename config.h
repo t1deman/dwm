@@ -28,6 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Skype",	NULL,       NULL,       0,            1,           -1},
 	{ "Firefox",  NULL,       NULL,       1,       0,           0 },
 	{ "discord",	NULL,NULL, 1 << 3 ,0,0},
 	{ "Signal",	NULL,NULL, 1 << 3 ,0,1},
@@ -36,6 +37,7 @@ static const Rule rules[] = {
 	{ "thunderbird", NULL, NULL, 1 << 1, 0,0},
 	{ "Barrier", NULL, NULL, 1 << 8 , 0 , 1},
 	{ "Vmware", NULL, NULL, 1 << 5 , 0 , 0},
+	{ "org.remmina.Remmina",NULL, NULL, 1 << 6 , 0 , 0 },
 	{ "Komodo", NULL, NULL, 1 << 4 , 0 , 0},
 	{ "Atom", NULL, NULL, 1 << 4 , 0 , 0},
 	{ "VSCodium", NULL, NULL, 1 << 4 , 0 , 0},
