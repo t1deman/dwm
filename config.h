@@ -37,6 +37,7 @@ static const Rule rules[] = {
 	{ "Evolution", NULL, NULL, 1 << 1 , 0 , 0},
 	{ "thunderbird", NULL, NULL, 1 << 1, 0,0},
 	{ "Barrier", NULL, NULL, 1 << 8 , 0 , 1},
+	{ "1Password", NULL, NULL, 1 << 4 , 0 , 1},
 	{ "Vmware", NULL, NULL, 1 << 5 , 0 , 0},
 	{ "org.remmina.Remmina",NULL, NULL, 1 << 6 , 0 , 0 },
 	{ "Komodo", NULL, NULL, 1 << 4 , 0 , 0},
