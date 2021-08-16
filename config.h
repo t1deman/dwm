@@ -37,7 +37,7 @@ static const Rule rules[] = {
 	{ "Evolution", NULL, NULL, 1 << 1 , 0 , 0},
 	{ "thunderbird", NULL, NULL, 1 << 1, 0,0},
 	{ "Barrier", NULL, NULL, 1 << 8 , 0 , 1},
-	{ "1Password", NULL, NULL, 1 << 4 , 0 , 1},
+	{ "1Password", NULL, NULL, 1 << 4 , 1 , -1},
 	{ "Vmware", NULL, NULL, 1 << 5 , 0 , 0},
 	{ "org.remmina.Remmina",NULL, NULL, 1 << 6 , 0 , 0 },
 	{ "Komodo", NULL, NULL, 1 << 4 , 0 , 0},
@@ -49,7 +49,7 @@ static const Rule rules[] = {
 	{ "Nm-connection-editor", NULL, NULL, 1 << 6, 0,1},
 	{ "Wicd-client.py", NULL, NULL, 1 << 6, 0,1},
 	{ "Opera", NULL, NULL, 1, 0, 1},
-	{ "Standard Notes", NULL, NULL, 1<< 1, 0, 1},
+	{ "Standard Notes", NULL, NULL, 1<< 3, 0, 1},
 	{ "install4j-burp-StartBurp",     NULL,       NULL,       0,            1,           -1 }
 };
 
